@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+class Cylinder {
+    protected double radius;
+    protected double height;
+
+    // Method to get user input for radius and height
+    public void getInput() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the radius of the cylinder: ");
+        radius = scanner.nextDouble();
+        System.out.print("Enter the height of the cylinder: ");
+        height = scanner.nextDouble();
+    }
+
+    // Method to compute the area of the cylinder
+    public double area() {
+        return 2 * Math.PI * radius * radius + 2 * Math.PI * radius * height;
+    }
+}
+
+class CylinderVol extends Cylinder {
+    // Method to compute the volume of the cylinder
+    public double volume() {
+        return Math.PI * radius * radius * height;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CylinderVol cylinder = new CylinderVol();
+        cylinder.getInput();
+        System.out.printf("Area of the cylinder: %.2f%n", cylinder.area());
+        System.out.printf("Volume of the cylinder: %.2f%n", cylinder.volume());
+    }
